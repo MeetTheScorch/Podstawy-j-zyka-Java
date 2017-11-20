@@ -1,0 +1,14 @@
+jUNIT
+
+gra w:
+1)Bowling
+lub
+2)Dart
+
+zero kodu w mainie, udowodniæ algorytm za pomoc¹ testów jednostkowych
+
+----------------------------------------
+
+EasyMock, Mockito
+
+przetestowaæ factory za pomoc¹ Mock (wstrzykn¹æ dane zamiast DAO)
