@@ -26,30 +26,37 @@ public class FileManager {
         }
         return instance;
     }
-    
+
+    private FileManager() {
+    }
+        
     public void saveToFile(String path, String name, List history) throws IOException{
+        PrintWriter printWriter = null;
         try {
             File directory = new File(path);
             if(!directory.exists()){
                 directory.mkdir();
             }
-            FileWriter fileWriter = new FileWriter(path+name, true);
-            try (PrintWriter printWriter = new PrintWriter(fileWriter)) {
-                history.forEach((line) -> {
-                    printWriter.write(line + "\r\n");
-                });
+            printWriter = new PrintWriter(new FileWriter(path+name, true));
+            for(Object line : history){
+                printWriter.write(line + "\r\n");
             }
         } 
         catch (IOException ex) {
             throw ex;
         }
+        finally{
+            if(printWriter != null){
+                printWriter.close();
+            }
+        }
     }
     
     public List<String> loadFromFile(String path, String name) throws IOException{
         List<String> history = new ArrayList<>();
+        BufferedReader bufferedReader = null;
         try {
-            FileReader reader = new FileReader(path+name);
-            BufferedReader bufferedReader = new BufferedReader(reader);
+            bufferedReader = new BufferedReader(new FileReader(path+name));
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 history.add(line);
@@ -58,6 +65,11 @@ public class FileManager {
         } 
         catch (IOException ex) {
             throw ex;
+        }
+        finally{
+            if(bufferedReader != null){
+                bufferedReader.close();
+            }
         }
         return history;
     }
