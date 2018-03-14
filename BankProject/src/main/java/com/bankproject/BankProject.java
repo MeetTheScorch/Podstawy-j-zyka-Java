@@ -19,7 +19,7 @@ public class BankProject {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        BankService service = new BankService();
+        BankService service = new BankService("POKA BP","POKAPLP0");
         
         try{
             service.addPerson("Michał","Miłek",new GregorianCalendar(1992,3,29));

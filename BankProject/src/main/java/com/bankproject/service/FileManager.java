@@ -36,7 +36,7 @@ public class FileManager {
             File directory = new File(path);
             if(!directory.exists()){
                 directory.mkdir();
-            }
+            }            
             printWriter = new PrintWriter(new FileWriter(path+name, true));
             for(Object line : history){
                 printWriter.write(line + "\r\n");

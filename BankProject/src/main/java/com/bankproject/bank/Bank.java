@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class Bank {
     private final String name;
-    private String swiftCode;
+    private final String swiftCode;
     private List<String> bankOperationHistory = new ArrayList<>();
     private final String path;
 

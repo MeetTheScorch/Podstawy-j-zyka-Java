@@ -27,15 +27,16 @@ import java.util.Map;
  * @author MeetTheScorch
  */
 public class BankService {
-    private final Bank bank = new Bank("POKA BP","POKAPLP0");
+    private final Bank bank;
     private final List<Person> personList = new ArrayList<>();
     private final List<BankAccount> bankAccountList = new ArrayList<>();
     private final Map<BankAccount, Person> accountPersonMap = new HashMap<>();
     private final GregorianCalendar date = new GregorianCalendar();
     private final List<SWIFT> swiftCodes = new ArrayList<>();
-
-    public BankService() {
-        swiftCodes.add(new SWIFT("POKAPLP0","POKA BP"));
+    
+    public BankService(String name, String code) {
+        bank = new Bank(name,code);
+        loadSwiftCodes();
     }
     
     //
@@ -244,5 +245,9 @@ public class BankService {
         bankAccountList.forEach((account) -> {
             account.saveOperationHistory();
         });
+    }
+    
+    private void loadSwiftCodes(){
+        swiftCodes.add(new SWIFT("POKAPLP0","POKA BP"));
     }
 }
