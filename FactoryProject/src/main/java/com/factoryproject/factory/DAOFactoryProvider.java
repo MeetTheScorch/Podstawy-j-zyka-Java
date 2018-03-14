@@ -25,6 +25,9 @@ public class DAOFactoryProvider {
         }
         return instance;
     };
+
+    private DAOFactoryProvider() {  
+    }
     
     private IFactory factory = null;
     private static final HashMap<FactoryEnum, IFactory> factoryMap = new HashMap<FactoryEnum, IFactory>();

@@ -36,7 +36,7 @@ public class TestDAOFactoryProvider {
         dbFactory = mock(DBFactory.class);
         wsFactory = mock(WSFactory.class);
         xmlFactory = mock(XMLFactory.class);
-        
+
         provider = DAOFactoryProvider.getInstance();
     }
     
